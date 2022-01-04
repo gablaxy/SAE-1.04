@@ -1,0 +1,7 @@
+- Il y a beaucoup de champs contacts, il serait plus pratique de créer une table supplémentaire où chaque ligne contient un contact comprenant le numéro de client, un email, un numéro, ect...
+- on devrait découper en deux tables la table catégorie, les différentes pratiques ( alpins, nordiques, ect...) et les différents produits ayant un champs les reliants aux différentes pratiques.
+- On peut aussi supprimer / raccourcir la table type article car il y a seulement des articles de type 'P' ( produit stockable ), et il serait peut envisageable d'avoir des consommables dans un magasin de ski.
+- il y a des clefs étrangères n'ayant pas les mêmes types : 
+
+    - la clef etrangère entre client et etiquette avec le champ codeetiquette où l'un est un CHAR[2] et l'autre un CHAR[3]
+
