@@ -246,3 +246,13 @@ insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (30,'E',430);
 insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (31,'E',410);
 insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (32,'E',300);
 
+
+/*==============================================================*/
+/* Table : Etiquette                                            */
+/*==============================================================*/
+create table ETIQUETTE (
+    CODEETIQUETTE   VARCHAR(20)          not null,
+    LIBELLETYPE     VARCHAR(20)          not null,
+    CODETYPE        INTEGER            not null,
+    constraint PK_ETIQUETTE primary key (CODEETIQUETTE)   
+);
