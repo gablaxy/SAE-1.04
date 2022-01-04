@@ -102,8 +102,8 @@ Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) 
 /*==============================================================*/
 
 create table CATEGORIE(
-    NUMCATEGORIE    serial,
-    LIBELLECATEGORIE int    not null,
+    NUMCATEGORIE        serial,
+    LIBELLECATEGORIE    int      not null,
     constraint PK_CATEGORIE primary key(NUMCATEGORIE),
     constraint FK_CAT_SEDECOMP_CAT foreign key(LIBELLECATEGORIE) references categorie(libellecategorie) as categorie(CAT_NUMCATEGORIE2)
 );
@@ -184,3 +184,65 @@ create table CONTACTCLIENT (
     FONCTION        VARCHAR(20)          not null,
     constraint PK_CONTACTCLIENT primary key (NUMCOMMANDE)   
 );
+
+/*==============================================================*/
+/* Table : LISTEPRIX                                            */
+/*==============================================================*/
+create table LISTEPRIX (
+   CODELISTE            CHAR(1),
+   LIBELLELISTE         VARCHAR(20)          not null,
+   constraint PK_LISTEPRIX primary key (CODELISTE)
+);
+
+insert into LISTEPRIX (CODELISTE,LIBELLELISTE) values
+('E','Liste prix euros');
+insert into LISTEPRIX (CODELISTE,LIBELLELISTE) values
+('D','Liste prix dollars');
+insert into LISTEPRIX (CODELISTE,LIBELLELISTE) values
+('S','Liste prix special');
+insert into LISTEPRIX (CODELISTE,LIBELLELISTE) values
+('P','Liste prix promotion');
+
+/*==============================================================*/
+/* Table : TARIFVENTE                                           */
+/*==============================================================*/
+create table TARIFVENTE (
+   NUMARTICLE           INTEGER,
+   CODELISTE            CHAR(1)              not null,
+   PRIXVENTE            DECIMAL(10,2)        not null,
+   constraint PK_TARIFVENTE primary key (NUMARTICLE, CODELISTE)
+);
+
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (1,'E',4.5);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (2,'E',3.5);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (3,'E',19);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (4,'E',12);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (5,'E',10);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (6,'E',14);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (7,'E',55);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (8,'E',170);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (9,'E',100);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (10,'E',120);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (11,'E',320);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (12,'E',400);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (13,'E',220);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (14,'E',300);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (15,'E',350);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (16,'E',650);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (17,'E',500);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (18,'E',350);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (19,'E',400);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (20,'E',548);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (21,'E',400);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (22,'E',250);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (23,'E',132.4);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (24,'E',500);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (25,'E',320);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (26,'E',500);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (27,'E',548);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (28,'E',549);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (29,'E',470);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (30,'E',430);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (31,'E',410);
+insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (32,'E',300);
+
