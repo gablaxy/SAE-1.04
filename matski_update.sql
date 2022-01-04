@@ -1,9 +1,24 @@
 create schema matski_update;
 set schema 'matski_update';
 
-create schema matski_update;
-set schema 'matski_update';
-4.5,
+drop table if exists ARTICLE cascade ;
+
+drop table if exists CATEGORIE   cascade ;
+
+drop table if exists CLIENT cascade ;
+
+drop table if exists COMMANDE cascade ;
+
+drop table if exists DETAILCOMMANDE cascade ;
+
+drop table if exists ETIQUETTE cascade ;
+
+drop table if exists LISTEPRIX cascade ;
+
+drop table if exists TARIFVENTE cascade ;
+
+drop table if exists TYPEARTICLE cascade ;
+
 /*==============================================================*/
 /* Table : ARTICLE                                              */
 /*==============================================================*/
