@@ -173,3 +173,14 @@ Insert into TYPEARTICLE (CODETYPE,LIBELLETYPE) values
 ('P','Produit Stockable');
 Insert into TYPEARTICLE (CODETYPE,LIBELLETYPE) values
 ('S','Service');
+
+/*==============================================================*/
+/* Table : Contact Client                                       */
+/*==============================================================*/
+create table CONTACTCLIENT (
+    NUMCLIENT       SERIAL               not null,
+    NOM             VARCHAR(40)          not null,
+    TELEPHONE       VARCHAR(10)          not null,
+    FONCTION        VARCHAR(20)          not null,
+    constraint PK_CONTACTCLIENT primary key (NUMCOMMANDE)   
+);
