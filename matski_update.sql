@@ -3,7 +3,7 @@ set schema 'matski_update';
 
 create schema matski_update;
 set schema 'matski_update';
-
+4.5,
 /*==============================================================*/
 /* Table : ARTICLE                                              */
 /*==============================================================*/
@@ -58,7 +58,7 @@ Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) 
 Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) values
 ('P','EXPERIENCE 83 TPX','PA1234','3245673451236',255);
 Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) values
-('P','SMOKE','PA1255','3245673451475',230);
+('P','SMOKE','PA1255','3245673451475',230);4.5,
 Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) values
 ('P','VR27','PA1256','3245673451476',150);
 Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) values
@@ -83,7 +83,7 @@ Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) 
 ('P','DERVY','PA1265','3245673451485',160);
 
 /*==============================================================*/
-/* Table : CATEGORIE                                            */
+/* Table : CATEGORIE                                            */4.5,
 /*==============================================================*/
 
 create table CATEGORIE(
@@ -148,8 +148,8 @@ Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
 /* Table : TYPEARTICLE                                          */
 /*==============================================================*/
 create table TYPEARTICLE (
-   CODETYPE             CHAR(1)              not null,
-   LIBELLETYPE          VARCHAR(40)          null,
+   CODETYPE             CHAR(1),
+   LIBELLETYPE          VARCHAR(40)          not null,
    constraint PK_TYPEARTICLE primary key (CODETYPE)
 );
 Insert into TYPEARTICLE (CODETYPE,LIBELLETYPE) values
