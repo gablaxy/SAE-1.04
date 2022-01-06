@@ -176,17 +176,6 @@ Insert into TYPEARTICLE (CODETYPE,LIBELLETYPE) values
 ('S','Service');
 
 /*==============================================================*/
-/* Table : Contact Client                                       */
-/*==============================================================*/
-create table CONTACTCLIENT (
-    NUMCLIENT       SERIAL               not null,
-    NOM             VARCHAR(40)          not null,
-    TELEPHONE       VARCHAR(10)          not null,
-    FONCTION        VARCHAR(20)          not null,
-    constraint PK_CONTACTCLIENT primary key (NUMCOMMANDE)   
-);
-
-/*==============================================================*/
 /* Table : LISTEPRIX                                            */
 /*==============================================================*/
 create table LISTEPRIX (
@@ -419,17 +408,32 @@ create table CONTACT_CLIENT(
     NOM_CLI         char(50)    not null,
     TELEPHONE_CLI   char(10)    not null,
     FONCTION_CLI    char(50)    not null,
+    MAILCLIENT   VARCHAR(20)    not null,
     constraint CONTACT_CLI_PK primary key (NUMCLIENT)
 );
 
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (1,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (1,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (12,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (5,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (8,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (8,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (8,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (9,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values (17,);
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values ();
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI) values ();
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (1,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (1,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (12,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (5,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (8,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (8,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (8,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (9,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (17,);
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values ();
+INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values ();
+
+/*==============================================================*/
+/* Table : Client                                           */
+/*==============================================================*/
+create table CLIENT (
+    NUMCLIENT       SERIAL               not null,
+    CODEETIQUETTE   VARCHAR(20)          not null,
+    CODELISTE    CHAR(1)                 not null,
+    ADRESSERUECLIENT   VARCHAR(20)          not null,
+    ADRESSERUECODEPOSTALCLIENT  VARCHAR(20)          not null,
+    ADRESSERUEPAYSCLIENT   VARCHAR(20)          not null,
+    constraint PK_CLIENT_NUMCLIENT primary key (NUMCLIENT),
+    constraint PK_CLIENT_CODEETIQUETTE primary key (CODEETIQUETTE)    
+);
