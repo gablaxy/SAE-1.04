@@ -98,7 +98,7 @@ Insert into ARTICLE (CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE,COUTACHAT ) 
 ('P','DERVY','PA1265','3245673451485',160);
 
 /*==============================================================*/
-/* Table : CATEGORIE                                            */4.5,
+/* Table : CATEGORIE                                            */
 /*==============================================================*/
 
 create table CATEGORIE(
@@ -452,7 +452,7 @@ INSERT INTO CONTACT_CLIENT(NUMCLI, NOMCONTACT, TELEPHONECONTACT, FONCTIONCONTACT
 (20,'Easum','442176604455','Acheteur');
 
 /*==============================================================*/
-/* Table : Client                                           */
+/* Table : Client                                               */
 /*==============================================================*/
 create table CLIENT (
     NUMCLIENT                   SERIAL,
