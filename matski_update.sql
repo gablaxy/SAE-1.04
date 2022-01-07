@@ -109,14 +109,14 @@ create table CATEGORIE(
     constraint FK_CAT_SEDECOMP_CAT foreign key(LIBELLECATEGORIE) references categorie(libellecategorie) as categorie(CAT_NUMCATEGORIE2)
 );
 
-Insert into CATEGORIE (LIBELLECATEGORIE) values
-('Matériel ski alpins');
-Insert into CATEGORIE (LIBELLECATEGORIE) values
-('Matériel de snowboard');
-Insert into CATEGORIE (LIBELLECATEGORIE) values
-('Matériel ski nordique');
-Insert into CATEGORIE (LIBELLECATEGORIE) values
-('Matériel ski montagne');
+Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
+(null,'Matériel ski alpins');
+Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
+(null,'Matériel de snowboard');
+Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
+(null,'Matériel ski nordique');
+Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
+(null,'Matériel ski montagne');
 Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
 (1,'Chaussures');
 Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
@@ -243,7 +243,7 @@ insert into TARIFVENTE (NUMARTICLE, CODELISTE, PRIXVENTE) values (32,'E',300);
 create table ETIQUETTE (
     CODEETIQUETTE   VARCHAR(20)          not null,
     LIBELLETYPE     VARCHAR(20)          not null,
-    CODETYPE        INTEGER            not null,
+    CODETYPE        INTEGER              not null,
     constraint PK_ETIQUETTE primary key (CODEETIQUETTE)   
 );
 Insert into ETIQUETTE (CODEETIQUETTE,LIBELLEETIQUETTE,CODETYPETVA)  values
@@ -404,25 +404,52 @@ INSERT INTO DETAILCOMMANDE (NUMCOMMANDE, NUMARTICLE, QUANTITECOMMANDEE, QUANTITE
 /* Table : Contact client                                       */
 /*==============================================================*/
 create table CONTACT_CLIENT(
-    NUMCLIENT       serial,
-    NOM_CLI         char(50)    not null,
-    TELEPHONE_CLI   char(10)    not null,
-    FONCTION_CLI    char(50)    not null,
-    MAILCLIENT   VARCHAR(20)    not null,
-    constraint CONTACT_CLI_PK primary key (NUMCLIENT)
+    NUMCLI             int,
+    NOMCONTACT         char(20)    not null,
+    TELEPHONECONTACT   char(10)    not null,
+    FONCTIONCONTACT    char(20)    not null,
+    MAILCONTACT         VARCHAR(20) not null,
+    constraint CONTACT_CLI_PK primary key (NUM_CLI)
 );
 
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (1, 'Charles Descartes', '0758946523', 'Agriculteur', 'Descartes.Charles@gmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (1, 'Jeanne Descartes', '0684751031', 'Retraite', 'Descartes.Charles@gmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (12, 'Jean-Claude LeMoine', '0256847535', 'Responsable', 'Jc.LeMoine@hotmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (5, 'Jacques Méno', '0133485794', 'Ingénieur', 'Meno.jacques@outlook.fr');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (8, 'Léa Maffe', '0545639923', 'Étudiante', 'Maffe.lea2@gmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (8, 'Loïc Maffe', '0125568791', 'Cadre', 'Maffe.loïc25@gmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (8, 'Hervé Montaint', '0654831247', 'Responsable', 'Montain.Herve@eureden.fr');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (9, 'Régine Montaint', '0478561256', 'Caissier', 'Montaint.regine@gmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (17, 'Marcel Jacus', '0244863256', 'Retraite', 'Jacus.thierry@gmail.com');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (2, 'E.Leclerc', '0296480094', 'Magasin', 'Leclerc@e.leclerc.fr');
-INSERT INTO CONTACT_CLIENT (NUMCLIENT, NOM_CLI, TELEPHONE_CLI, FONCTION_CLI, MAILCLIENT) values (11, 'Loïse Reg', '0354556123', 'Chômage', 'Loïse.Reg@outlook.fr');
+INSERT INTO CONTACT_CLIENT(NUMCLI, NOMCONTACT, TELEPHONECONTACT, FONCTIONCONTACT, MAILCONTACT) values
+(1,'Fallon','043423245477','Commercial'),
+(1,'Colquit','043423245478','Responsable'),
+(2,'Darigan','043623245477','Responsable'),
+(2,'Caney','043623245478','Responsable ventes'),
+(3,'Mudrell','044023245477','Acheteur'),
+(3,'Layton','044023245478','Responsable'),
+(4,'Betser','044223245477','Vendeur'),
+(4,'Polet','044223245478','Accueil'),
+(5,'Weaver','044423245477','Commercial'),
+(5,'Doge','044423245478','Responsable'),
+(6,'Noades','044523245477','Acheteur'),
+(6,'Stegers','044523245478','Commercial'),
+(7,'Alessandrucci','044623245477','Accueil'),
+(7,'Rosson','044623245478','Responsable'),
+(8,'Veermer','0336237251','Accueil'),
+(8,'Keerl','0336237252','Responsable ventes'),
+(9,'Riddeough','0337237251','Acheteur'),
+(9,'Fitz','0337237251','Commercial'),
+(10,'Maclan','0338237251','Commercial'),
+(10,'Saudra','0338237252','Responsable ventes'),
+(11,'Paolino','0334237251','Accueil'),
+(11,'Odde','0334237252','Commercial'),
+(12,'Emeney','43535666604','Accueil'),
+(13,'Keymer','43635666604','Accueil'),
+(13,'Dutteridge','43635666605','Vendeur'),
+(14,'Heady','43735666605','Commercial'),
+(14,'Piddletown','43735666603','Vendeur'),
+(15,'Heady','390676985610','Commercial'),
+(15,'Piddletown','390676985608','Vendeur'),
+(16,'Heady','390776985610','Accueil'),
+(16,'Piddletown','390776985608','Vendeur'),
+(17,'Heady','390876985610','Commercial'),
+(18,'Heady','390576985610','Accueil'),
+(19,'Kirkwood','442076604454','Acheteur'),
+(19,'Benny','442076604455','Vendeur'),
+(20,'Forbes','442176604454','Accueil'),
+(20,'Easum','442176604455','Acheteur');
 
 /*==============================================================*/
 /* Table : Client                                           */
@@ -432,17 +459,32 @@ create table CLIENT (
     CODEETIQUETTE               VARCHAR(20)          not null,
     CODELISTE                   CHAR(1)              not null,
     ADRESSERUECLIENT            VARCHAR(20)          not null,
-    ADRESSECODEPOSTALCLIENT  VARCHAR(20)          not null,
+    ADRESSECODEPOSTALCLIENT     VARCHAR(20)          not null,
     ADRESSEPAYSCLIENT           VARCHAR(20)          not null,
+    TELEPHONECLIENT             CHAR(10)             not null,
+    MAILCLIENT                  CHAR(20)             not null,
     constraint PK_CLIENT_NUMCLIENT primary key (NUMCLIENT),
     constraint PK_CLIENT_CODEETIQUETTE primary key (CODEETIQUETTE)    
 );
 
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (1, 'IT', 'E', '5 Rue del poyo', '00186 Roma', 'Italie');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (2, 'FR', 'E', '15 impasse du rongeur', '22580 Lanloup', 'France');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (5, 'FR', 'E', '3 rue du commerce', '26540 Mours-Saint-Eusèbe', 'France');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (8, 'CH', 'E', 'Chemin du Château-Bloch 10', '1219 Le Lignon', 'Suisse');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (9, 'AT', 'E', 'Olympiaplatz 2 EKZ Stadion Center','Hinterbündt 380','1020 Wien','Autriche');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (11, 'FR'  'E', 'GO Sport Perpignan','1050 Avenue d''Espagne', '66000 Perpignan','France');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (12, 'FR', 'E', 'GO Sport Orange','Les vignes','84100 Orange','France');
-INSERT INTO CLIENT (NUMCLIENT, CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSERUECODEPOSTALCLIENT, ADRESSEPAYSCLIENT) values (17, 'IT', 'E', 'Foot Locker Rome','Via Tuscolana 855','00174 Rome','Italie');
+INSERT INTO CLIENT(CODEETIQUETTE, CODELISTE, ADRESSERUECLIENT, ADRESSECODEPOSTALCLIENT, ADRESSEPAYSCLIENT,TELEPHONECLIENT, MAILCLIENT) values
+('E','FR','GO Sport Agen','Zac agen Sud','47000 Agen','France','043423245476','gosportA@gmail.fr'),
+('E','FR','GO Sport Albi','50 route de Saint Juery','81000 Albi','France','043623245476','gosportAlbi@gmail.fr'),
+('E','FR','GO Sport Nantes','Place de Bretagne','74000 Annecy','France','044023245476','gosportNantes@gmail.fr'),
+('E','FR','GO Sport Aulnay','O Parinot','93600 Aulnay sous Bois','France','044223245476','gosportAnnecy@gmail.fr'),
+('E','FR','GO Sport Paris 12','135 rue Daumesnil','75012 Paris','France','044423245476','gosportAnnecy@gmail.fr'),
+('E','FR','GO Sport Orange','Les vignes','84100 Orange','France','044523245476','gosportAnnecy@gmail.fr'),
+('E','FR','GO Sport Perpignan','1050 Avenue d''Espagne','66000 Perpignan','France','044623245476','gosportAnnecy@gmail.fr'),
+('E','CH','OCHSNER Sport Neuchatel','10 Rue de la pierre à Mazel','2000 Neuchâtel','Suisse','0336237250','ochsnerneu@gmail.cf'),
+('E','CH','OCHSNER Sport Bull','4 rue de l''europe','1630 Bulle','Suisse','0337237250','ochsnerbulle@gmail.cf'),
+('E','CH','OCHSNER Sport Luzern','50 Hertensteinstrasse','6004 Luzerun','Suisse','0338237250','ochsnerluzern@gmail.cf'),
+('E','CH','OCHSNER Sport Stans','88 Stansstaderstrasse','6370 Stans','Suisse','0334237250','ochsnerstans@gmail.cf'),
+('E','AT','SPORT 2000 Natter Talstation Bergbahnen','Hinterbündt 380','6881 Mellau','Autriche','43535666603','sportnatter@gmail.cf'),
+('E','AT','Olympiaplatz 2 EKZ Stadion Center','Hinterbündt 380','1020 Wien','Autriche','43635666603','olym@gmail.cf'),
+('E','AT','SPORT 2000 Bich','Bichlstraße 7','6370 Kitzbühel','Autriche','43735666606','sportbich@gmail.cf'),
+('E','IT','Foot Locker Rome','Via Tuscolana 855','00174 Rome','Italie','390676985609','footlockerrome@gmail.cf'),
+('E','IT','Foot Locker Firenze','Borgo S. Lorenzo, 19/R','50123 Firenze FI','Italie','390776985609','footlockerfirenze@gmail.cf'),
+('E','IT','The North Face Pavia','Corso Str. Nuova, 24','27100 Pavia','Italie','390876985609','footlockerpavia@gmail.cf'),
+('E','IT','The North Face Reggio','Corso Giuseppe Garibaldi 11','42121 Reggio Emilia RE','Italie','390576985609','footlockerrome@gmail.cf'),
+('E','GB','Nike Town','236 Oxford St','11345 Londres','Royaume-Uni','442076604453','nikelondon@gmail.cf'),
+('E','GB','Lillywhites','24-36 Regent St','42121 Londres','Royaume-Uni','442076604453','Lilly@gmail.cf');
