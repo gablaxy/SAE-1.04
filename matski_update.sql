@@ -90,60 +90,59 @@ Insert into ARTICLE (NUMCATEGORIE,CODETYPE,NOMARTICLE,REFERENCEINTERNE,CODEBARRE
 create table CATEGORIE(
     NUMCATEGORIE        serial,
     LIBELLECATEGORIE    varchar(40)      not null,
-    CAT_NUMCATEGORIE2   int              not null,
     constraint PK_CATEGORIE primary key(NUMCATEGORIE)
 );
 
-/*Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(null,'Matériel ski alpins');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(null,'Matériel de snowboard');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(null,'Matériel ski nordique');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(null,'Matériel ski montagne');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(1,'Chaussures');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(1,'Skis');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(1,'Batons');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(2,'Chaussures');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(2,'Snowboards');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(3,'Chaussures');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(3,'Batons');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(3,'Skis');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(4,'Paret');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(4,'Luges');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Polyvalent');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Freestyle');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Racing');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Freeride');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Randonnée');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Polyvalent');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Freestyle');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Alpine');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Freeride');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(12,'Skating');
-Insert into CATEGORIE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(12,'Alternatif');*/
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Matériel ski alpins');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Matériel de snowboard');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Matériel ski nordique');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Matériel ski montagne');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Chaussures');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Skis');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Batons');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Chaussures');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Snowboards');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Chaussures');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Batons');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Skis');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Paret');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Luges');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Polyvalent');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Freestyle');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Racing');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Freeride');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Randonnée');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Polyvalent');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Freestyle');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Alpine');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Freeride');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Skating');
+Insert into CATEGORIE (LIBELLECATEGORIE) values
+('Alternatif');
 
 /*==============================================================*/
 /* Table : TYPEARTICLE                                          */
@@ -478,53 +477,53 @@ INSERT INTO CLIENT(CODELISTE, CODEETIQUETTE, NOMCLIENT, ADRESSERUECLIENT, ADRESS
 /* Table : Se décompose                                         */
 /*==============================================================*/
 create table SEDECOMPOSE(
-    CAT_NUMCATEGORIE2   int,
-    NUMCATEGORIE        int not null,
-    constraint PK_SEDECOMPOSE primary key(CAT_NUMCATEGORIE2)
+    CAT_FILLE   int,
+    CAT_MERE    int not null,
+    constraint PK_SEDECOMPOSE primary key(CAT_FILLE)
 );
 
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(1,'Chaussures');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(1,'Skis');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(1,'Batons');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(2,'Chaussures');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(2,'Snowboards');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(3,'Chaussures');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(3,'Batons');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(3,'Skis');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(4,'Paret');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(4,'Luges');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Polyvalent');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Freestyle');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Racing');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Freeride');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(6,'Randonnée');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Polyvalent');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Freestyle');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Alpine');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(9,'Freeride');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(12,'Skating');
-Insert into SEDECOMPOSE (CAT_NUMCATEGORIE2,LIBELLECATEGORIE) values
-(12,'Alternatif');
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(5,1);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(6,1);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(7,1);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(8,2);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(9,2);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(10,3);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(11,3);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(12,3);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(13,4);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(14,4);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(15,6);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(16,6);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(17,6);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(18,6);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(19,6);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(20,9);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(21,9);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(22,9);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(23,9);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(24,12);
+Insert into SEDECOMPOSE (CAT_FILLE, CAT_MERE) values
+(25,12);
 
 alter table ARTICLE
    add constraint FK_ARTICLE_ESTLIE_TYPEARTI foreign key (CODETYPE)
@@ -535,7 +534,7 @@ alter table ARTICLE
       references CATEGORIE (NUMCATEGORIE);
 
 alter table SEDECOMPOSE
-    add constraint FK_SEDECOMPOSE_NUMCATEGORIE2 foreign key (CAT_NUMCATEGORIE2)
+    add constraint FK_SEDECOMPOSE_NUMCATEGORIE2 foreign key (CAT_FILLE)
         references CATEGORIE(NUMCATEGORIE);
 
 alter table CLIENT
