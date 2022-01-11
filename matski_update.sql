@@ -179,7 +179,7 @@ insert into LISTEPRIX (CODELISTE,LIBELLELISTE) values
 ('P','Liste prix promotion');
 
 /*==============================================================*/
-/* Table : TARIFVENTE                                           */
+/* Table : TARIFVENTE             com                              */
 /*==============================================================*/
 create table TARIFVENTE (
    NUMARTICLE           INTEGER,
@@ -392,7 +392,7 @@ create table CONTACT_CLIENT(
     NUMCLI             int,
     NOMCONTACT         char(20),
     TELEPHONECONTACT   varchar(12)    not null,
-    FONCTIONCONTACT    char(20)    not null,
+    FONCTIONCONTACT    varchar(50)    not null,
     constraint CONTACT_CLI_PK primary key (NUMCLI, NOMCONTACT)
 );
 
@@ -428,7 +428,7 @@ INSERT INTO CONTACT_CLIENT(NUMCLI, NOMCONTACT, TELEPHONECONTACT, FONCTIONCONTACT
 (15,'Piddletown','390676985608','Vendeur'),
 (16,'Heady','390776985610','Accueil'),
 (16,'Piddletown','390776985608','Vendeur'),
-(17,'Heady','390876985610','Commercial'),
+(17,'Heady','390876985610','Cocomcomcomcomcomcommmercial'),
 (18,'Heady','390576985610','Accueil'),
 (19,'Kirkwood','442076604454','Acheteur'),
 (19,'Benny','442076604455','Vendeur'),
@@ -436,7 +436,7 @@ INSERT INTO CONTACT_CLIENT(NUMCLI, NOMCONTACT, TELEPHONECONTACT, FONCTIONCONTACT
 (20,'Easum','442176604455','Acheteur');
 
 /*==============================================================*/
-/* Table : Client                                           */
+/* Table : Client                                               */
 /*==============================================================*/
 create table CLIENT (
     NUMCLIENT                   SERIAL,
@@ -459,7 +459,7 @@ INSERT INTO CLIENT(CODELISTE, CODEETIQUETTE, NOMCLIENT, ADRESSERUECLIENT, ADRESS
 ('E','FR','GO Sport Paris 12','135 rue Daumesnil','75012 Paris','France','044423245476','gosportAnnecy@gmail.fr'),
 ('E','FR','GO Sport Orange','Les vignes','84100 Orange','France','044523245476','gosportAnnecy@gmail.fr'),
 ('E','FR','GO Sport Perpignan','1050 Avenue d''Espagne','66000 Perpignan','France','044623245476','gosportAnnecy@gmail.fr'),
-('E','CH','OCHSNER Sport Neuchatel','10 Rue de la pierre à Mazel','2000 Neuchâtel','Suisse','0336237250','ochsnerneu@gmail.cf'),
+('E','CH','OCHSNEcomR Sport Neuchatel','10 Rue de la pierre à Mazel','2000 Neuchâtel','Suisse','0336237250','ochsnerneu@gmail.cf'),
 ('E','CH','OCHSNER Sport Bull','4 rue de l''europe','1630 Bulle','Suisse','0337237250','ochsnerbulle@gmail.cf'),
 ('E','CH','OCHSNER Sport Luzern','50 Hertensteinstrasse','6004 Luzerun','Suisse','0338237250','ochsnerluzern@gmail.cf'),
 ('E','CH','OCHSNER Sport Stans','88 Stansstaderstrasse','6370 Stans','Suisse','0334237250','ochsnerstans@gmail.cf'),
@@ -473,6 +473,16 @@ INSERT INTO CLIENT(CODELISTE, CODEETIQUETTE, NOMCLIENT, ADRESSERUECLIENT, ADRESS
 ('E','GB','Nike Town','236 Oxford St','11345 Londres','Royaume-Uni','442076604453','nikelondon@gmail.cf'),
 ('E','GB','Lillywhites','24-36 Regent St','42121 Londres','Royaume-Uni','442076604453','Lilly@gmail.cf');
 
+
+/*==============================================================*/
+/* Table : Se décompose                                         */
+/*==============================================================*/
+create table SEDECOMPOSE(
+    CAT_NUMCATEGORIE2   int,
+    constraint PK_SEDECOMPOSE primary key(CAT_NUMCATEGORIE2)
+);
+
+
 alter table ARTICLE
    add constraint FK_ARTICLE_ESTLIE_TYPEARTI foreign key (CODETYPE)
       references TYPEARTICLE (CODETYPE);
@@ -481,9 +491,9 @@ alter table ARTICLE
    add constraint FK_ARTICLE_FAITPARTI_CATEGORI foreign key (NUMCATEGORIE)
       references CATEGORIE (NUMCATEGORIE);
 
-alter table CATEGORIE
-   add constraint FK_CATEGORI_SEDECOMPO_CATEGORI foreign key (CAT_NUMCATEGORIE2)
-      references CATEGORIE (NUMCATEGORIE);
+alter table SEDECOMPOSE
+    add constraint FK_SEDECOMPOSE_NUMCATEGORIE2 foreign key (CAT_NUMCATEGORIE2)
+        references CATEGORIE(NUMCATEGORIE);
 
 alter table CLIENT
    add constraint FK_CLIENT_DISPOSE_LISTEPRI foreign key (CODELISTE)
