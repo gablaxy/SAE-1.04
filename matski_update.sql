@@ -538,10 +538,6 @@ alter table SEDECOMPOSE
     add constraint FK_SEDECOMPOSE_NUMCATEGORIE2 foreign key (CAT_NUMCATEGORIE2)
         references CATEGORIE(NUMCATEGORIE);
 
-alter table SEDECOMPOSE
-    add constraint FK_SEDECOMPOSE_LIBELLECATEGORIE foreign key (LIBELLECATEGORIE)
-        references CATEGORIE(LIBELLECATEGORIE);
-
 alter table CLIENT
    add constraint FK_CLIENT_DISPOSE_LISTEPRI foreign key (CODELISTE)
       references LISTEPRIX (CODELISTE);
