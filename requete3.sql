@@ -1,6 +1,6 @@
 set schema 'matski_update';
-select numclient
+select numclient, nomclient
 from client
 except
-select distinct numclient
-from commande
+select distinct numclient, nomclient
+from commande natural join client
